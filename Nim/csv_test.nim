@@ -16,8 +16,9 @@ proc main() =
   var
     sumByKey = newCountTable[string]()
     file = newFileStream(filename, fmRead)
+
   if file == nil:
-    quit("cannot open the file" & filename)
+    quit("cannot open the file " & filename)
 
   defer: file.close()
 
