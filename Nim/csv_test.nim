@@ -26,7 +26,7 @@ proc main() =
   open(csv, file, filename, separator=Delim)
 
   while csv.readRow():
-    if len(csv.row) > maxFieldIndex - 1:
+    if len(csv.row) > maxFieldIndex:
       sumByKey.inc(csv.row[keyFieldIndex], parseInt(csv.row[valueFieldIndex]))
 
   if sumByKey.len() == 0:
