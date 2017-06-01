@@ -1,9 +1,8 @@
 int main(string[] args)
 {
     import std.algorithm : max, maxElement, splitter;
-    import std.array : appender;
     import std.conv : to;
-    import std.range : take;
+    import std.range : enumerate;
     import std.stdio;
 
     if (args.length < 4)
@@ -19,19 +18,28 @@ int main(string[] args)
     string delim = "\t";
 
     long[string] sumByKey;
-    auto fields = appender!(char[][])();
 
     foreach(line; filename.File.byLine)
     {
-        fields.clear;
-        fields.put(line.splitter(delim).take(maxFieldIndex + 1));
-        if (maxFieldIndex < fields.data.length)
-        {
-            char[] key = fields.data[keyFieldIndex];
-            long fieldValue = fields.data[valueFieldIndex].to!long;
+        char[] key;
+        long value;
+        bool allFound = false;
 
-            if (auto sumValuePtr = key in sumByKey) *sumValuePtr += fieldValue;
-            else sumByKey[key.to!string] = fieldValue;
+        foreach (i, field; line.splitter(delim).enumerate)
+        {
+            if (i == keyFieldIndex) key = field;
+            if (i == valueFieldIndex) value = field.to!long;
+            if (i == maxFieldIndex)
+            {
+                allFound = true;
+                break;
+            }
+        }
+
+        if (allFound)
+        {
+            if (auto sumValuePtr = key in sumByKey) *sumValuePtr += value;
+            else sumByKey[key.to!string] = value;
         }
     }
 
