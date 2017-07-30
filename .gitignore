@@ -4,4 +4,6 @@ D/*
 Nim/*
 !Nim/*.nim
 
+C/fast
+
 ngrams.tsv
