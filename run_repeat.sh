@@ -9,3 +9,6 @@ echo "\nD (LDC)..."
 
 echo "\nNim..."
 ./repeat.rb ./Nim/csv_test ./ngrams.tsv 1 2
+
+echo "\nC..."
+./repeat.rb ./C/fast ./ngrams.tsv 1 2

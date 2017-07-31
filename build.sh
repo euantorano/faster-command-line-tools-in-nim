@@ -9,3 +9,7 @@ echo "\nBuilding with Nim"
 rm Nim/csv_test
 rm -Rf Nim/nimcache
 nim c -d:release -o:./Nim/csv_test ./Nim/csv_test.nim
+
+echo "\nBuilding with C"
+rm C/fast
+make -C C/
