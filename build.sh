@@ -13,3 +13,7 @@ nim c -d:release -o:./Nim/csv_test ./Nim/csv_test.nim
 printf "\nBuilding with C"
 rm C/fast
 make -C C/
+
+printf "\nBuilding with Go"
+rm Go/csvtest
+go build -ldflags "-s -w" -o Go/csvtest Go/csvtest.go 
