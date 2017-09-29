@@ -12,3 +12,6 @@ printf "\nNim..."
 
 printf "\nC..."
 ./repeat.rb ./C/fast ./ngrams.tsv 1 2
+
+printf "\nGo..."
+./repeat.rb ./Go/csvtest ./ngrams.tsv 1 2

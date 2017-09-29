@@ -12,3 +12,6 @@ time ./Nim/csv_test ./ngrams.tsv 1 2
 
 printf "\nC..."
 time ./C/fast ./ngrams.tsv 1 2
+
+printf "\nGo..."
+time ./Go/csvtest ./ngrams.tsv 1 2
