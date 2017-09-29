@@ -1,5 +1,6 @@
-printf "Python..."
-time python ./Python/csv_test.py ./ngrams.tsv 1 2
+echo "Python..."
+time python2 ./Python/csv_test.py ./ngrams.tsv 1 2
+
 
 printf "\nD (DMD)..."
 time ./D/csv_test ./ngrams.tsv 1 2
