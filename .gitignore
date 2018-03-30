@@ -1,9 +1,4 @@
-D/*
-!D/*.d
+.DS_Store
 
-Nim/*
-!Nim/*.nim
-
-C/fast
-
-ngrams.tsv
+data/ngrams.tsv
+output/*

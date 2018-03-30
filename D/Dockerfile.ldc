@@ -1,0 +1,21 @@
+# build image
+
+FROM dlanguage/ldc AS build-env
+
+WORKDIR /app
+
+COPY csv_test.d .
+
+RUN ldc2 -of=./csv_test -O -release -boundscheck=off ./csv_test.d
+
+# runtime image
+
+FROM ubuntu:16.04
+
+WORKDIR /app
+
+COPY --from=build-env /app/csv_test .
+
+VOLUME ['/data', '/output', '/resources']
+
+CMD /resources/run.sh d_ldc.txt

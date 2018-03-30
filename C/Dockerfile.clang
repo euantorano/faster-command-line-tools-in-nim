@@ -1,0 +1,25 @@
+# build image
+
+FROM alpine:latest AS build-env
+
+WORKDIR /app
+
+COPY csv_test.c .
+
+RUN apk add --no-cache clang musl-dev alpine-sdk
+
+RUN clang -O3 -g -Wall -o csv_test csv_test.c
+
+# runtime image
+
+FROM alpine:latest
+
+WORKDIR /app
+
+COPY --from=build-env /app/csv_test .
+
+VOLUME ['/data', '/output', '/resources']
+
+RUN apk add --no-cache bash
+
+CMD /resources/run.sh c_clang.txt

@@ -1,0 +1,13 @@
+# runtime image
+
+FROM python:3-alpine
+
+WORKDIR /app
+
+COPY csv_test_3.py ./csv_test.py
+
+VOLUME ['/data', '/output', '/resources']
+
+RUN apk add --no-cache bash
+
+CMD /resources/run_python.sh python3.txt

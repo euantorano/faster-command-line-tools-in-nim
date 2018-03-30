@@ -4,36 +4,29 @@ This is a project to test how Nim compares to D in one very specific scenario. I
 
 There's a full blog post explaining the reasoning and with some basic results form my system [available here](https://www.euantorano.co.uk/posts/faster-command-line-tools-in-nim/).
 
-## Building
+## Running the tests
 
-The D code is built using both DMD (the reference D compiler) and LDC (the LLVM based D compiler which emits faster code in most scenarios).
+All versions are built and ran using Docker.
 
-The Nim code is built using the standard Nim compiler, in release mode.
-
-The build commands for each scenario can be found below. All of these commands can be ran uing the `build.sh` script.
-
-### D (DMD)
-
-`dmd -O -release -inline -boundscheck=off -of=./D/csv_test ./D/csv_test.d`
-
-### D (LDC)
-
-`ldc2 -of=./D/csv_test_ldc -O -release -boundscheck=off ./D/csv_test.d`
-
-### Nim
-
-`nim c -d:release -o:./Nim/csv_test ./Nim/csv_test.nim`
-
-## Running
-
-Before running, be sure to grab the data source from the Google Books project, which can be [found here](https://storage.googleapis.com/books/ngrams/books/googlebooks-eng-all-1gram-20120701-0.gz). This should be extracted to a file named `ngrams.tsv`.
-
-All of the implementations should produce the same output, which should read as follows:
+To run every version and dump results into the `output` folder, you can use the `run` Make target:
 
 ```
-max_key: 2006 sum: 22569013
+make run
 ```
 
-You can run all of the implementations, with timing results using the `run.sh` script.
+This will also create a file `output/results.txt` which is a combination of all other results in a single file.
 
-For true benchmarks, this should be ran multiple times and an average calculated.
+You can also run individual targets if you're working on improving a target:
+
+- **C**: `make c_run`
+- **D**: `make d_run`
+- **Go**: `make go_run`
+- **Nim**: `make nim_run`
+- **Python**: `make python_run`
+
+This will download the `resources/ngrams.tsv` if it doesn't already exist
+
+## TODO
+
+- [ ] Run each version multiple times and take the average run times
+- [ ] Format the results into a nice table in the `output` directory when using `make run`, and possibly add graphs
