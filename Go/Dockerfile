@@ -4,7 +4,7 @@ FROM golang:alpine AS build-env
 
 WORKDIR /app
 
-COPY main.go .
+COPY csvtest.go .
 
 RUN go build -o csv_test ./csvtest.go
 
