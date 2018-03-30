@@ -24,7 +24,20 @@ You can also run individual targets if you're working on improving a target:
 
 This will download the `resources/ngrams.tsv` if it doesn't already exist
 
+## Results
+
+This repository is built by Travis for every push or PR. Results are published to the `gh-pages` branch:
+
+- [C (GCC)](https://euantorano.github.io/faster-command-line-tools-in-nim/c_gcc.txt)
+- [C (clang)](https://euantorano.github.io/faster-command-line-tools-in-nim/c_clang.txt)
+- [D (DMD)](https://euantorano.github.io/faster-command-line-tools-in-nim/d_dmd.txt)
+- [D (LDC)](https://euantorano.github.io/faster-command-line-tools-in-nim/d_ldc.txt)
+- [Go](https://euantorano.github.io/faster-command-line-tools-in-nim/go.txt)
+- [Nim](https://euantorano.github.io/faster-command-line-tools-in-nim/nim.txt)
+- [Python 2](https://euantorano.github.io/faster-command-line-tools-in-nim/python2.txt)
+- [Python 3](https://euantorano.github.io/faster-command-line-tools-in-nim/python3.txt)
+
 ## TODO
 
+- [ ] Build an overall results file which will be published to GitHub pages - possibly include graphs in this file?
 - [ ] Run each version multiple times and take the average run times
-- [ ] Format the results into a nice table in the `output` directory when using `make run`, and possibly add graphs
