@@ -14,8 +14,6 @@ To run every version and dump results into the `output` folder, you can use the 
 make run
 ```
 
-This will also create a file `output/results.txt` which is a combination of all other results in a single file.
-
 You can also run individual targets if you're working on improving a target:
 
 - **C**: `make c_run`

@@ -45,23 +45,6 @@ python_run: python_image data/ngrams.tsv
 	@docker run --rm -v $(CURRENT_DIR)/data:/data:ro -v $(CURRENT_DIR)/output:/output -v $(CURRENT_DIR)/resources:/resources:ro csv_test_python3
 
 run: c_run d_run go_run nim_run python_run
-	@printf "C (GCC):\n\n" > output/results.txt
-	@cat output/c_gcc.txt >> output/results.txt
-	@printf "\nC (clang):\n\n" >> output/results.txt
-	@cat output/c_clang.txt >> output/results.txt
-	@printf "\nD (DMD):\n\n" >> output/results.txt
-	@cat output/d_dmd.txt >> output/results.txt
-	@printf "\nD (LDC):\n\n" >> output/results.txt
-	@cat output/d_ldc.txt >> output/results.txt
-	@printf "\nGo:\n\n" >> output/results.txt
-	@cat output/go.txt >> output/results.txt
-	@printf "\nNim (GCC):\n\n" >> output/results.txt
-	@cat output/nim.txt >> output/results.txt
-	@printf "\nPython 2:\n\n" >> output/results.txt
-	@cat output/python2.txt >> output/results.txt
-	@printf "\nPython 3:\n\n" >> output/results.txt
-	@cat output/python3.txt >> output/results.txt
-	@cat output/results.txt
 
 clean:
 	@rm -Rf data
