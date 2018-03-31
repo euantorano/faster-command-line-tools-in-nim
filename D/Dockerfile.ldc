@@ -4,9 +4,9 @@ FROM dlanguage/ldc AS build-env
 
 WORKDIR /app
 
-COPY csv_test.d .
+COPY *.d ./
 
-RUN ldc2 -of=./csv_test -O -release -boundscheck=off ./csv_test.d
+RUN ldc2 -of=./csv_test -O -release -boundscheck=off ./csv_test.d ./fastcsv.d
 
 # runtime image
 

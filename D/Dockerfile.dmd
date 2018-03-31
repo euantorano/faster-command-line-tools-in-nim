@@ -4,9 +4,9 @@ FROM dlanguage/dmd AS build-env
 
 WORKDIR /app
 
-COPY csv_test.d .
+COPY *.d ./
 
-RUN dmd -O -release -inline -boundscheck=off -of=./csv_test ./csv_test.d
+RUN dmd -O -release -inline -boundscheck=off -of=./csv_test ./csv_test.d ./fastcsv.d
 
 # runtime image
 
