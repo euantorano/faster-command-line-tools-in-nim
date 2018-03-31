@@ -1,5 +1,5 @@
 max_key: 2006 sum: 22569013
 
-real	0m2.153s
-user	0m2.124s
-sys	0m0.024s
+real	0m1.379s
+user	0m1.168s
+sys	0m0.208s
